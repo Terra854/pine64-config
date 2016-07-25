@@ -11,7 +11,7 @@ if [ -z "$1" ]; then {
 }
 
 elif [ $1 = "ubuntu" ]; then {
-	
+	printf "" # Do nothing
 }
 
 elif [ $1 = "debian" ]; then {
