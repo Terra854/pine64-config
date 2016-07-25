@@ -10,6 +10,10 @@ if [ -z "$1" ]; then {
 	exit 1
 }
 
+elif [ $1 = "ubuntu" ]; then {
+	
+}
+
 elif [ $1 = "debian" ]; then {
 	echo "ERROR: The tool is not compatible with Debian at this time."
 	exit 1
@@ -17,6 +21,11 @@ elif [ $1 = "debian" ]; then {
 
 elif [ $1 = "opensuse" ]; then {
 	echo "ERROR: The tool is not compatible with openSUSE at this time."
+	exit 1
+}
+
+else {
+	echo "ERROR: Unknown distribution specified."
 	exit 1
 }
 fi
