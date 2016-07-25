@@ -12,3 +12,13 @@ Once it is installed, you can execute it with:
 <code>sudo pine64-config.sh</code>
 
 Enjoy!
+
+
+<h2>Source Layout</h2>
+
+main.sh -- Script for the main menu
+install.sh -- Script to build and install this tool.
+common/* -- Scripts that is applicable to all distributions
+ubuntu/* -- Ubuntu-specific scripts
+debian/* -- Debian-specific scripts
+opesuse/* -- openSUSE-specific scripts
