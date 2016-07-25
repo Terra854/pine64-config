@@ -16,9 +16,9 @@ Enjoy!
 
 <h2>Source Layout</h2>
 
-main.sh -- Script for the main menu
-install.sh -- Script to build and install this tool.
-common/* -- Scripts that is applicable to all distributions
-ubuntu/* -- Ubuntu-specific scripts
-debian/* -- Debian-specific scripts
-opesuse/* -- openSUSE-specific scripts
+<p>main.sh -- Script for the main menu.</p>
+<p>install.sh -- Script to build and install this tool.</p>
+<p>common/* -- Scripts that is applicable to all distributions.</p>
+<p>ubuntu/* -- Ubuntu-specific scripts.</p>
+<p>debian/* -- Debian-specific scripts.</p>
+<p>opesuse/* -- openSUSE-specific scripts.</p>
