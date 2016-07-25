@@ -15,8 +15,7 @@ elif [ $1 = "ubuntu" ]; then {
 }
 
 elif [ $1 = "debian" ]; then {
-	echo "ERROR: The tool is not compatible with Debian at this time."
-	exit 1
+	printf "" # Do nothing
 }
 
 elif [ $1 = "opensuse" ]; then {
@@ -35,6 +34,10 @@ printf "#!/bin/bash\n \n" >> pine64-config.sh
 
 if [ $1 = "ubuntu" ]; then {
 	cat ubuntu/*.sh common/*.sh main.sh >> pine64-config.sh
+}
+
+elif [ $1 = "debian" ]; then {
+	cat debian/*.sh common/*.sh main.sh >> pine64-config.sh
 }
 fi
 
