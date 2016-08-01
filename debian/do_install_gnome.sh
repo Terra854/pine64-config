@@ -1,6 +1,6 @@
 do_install_gnome() {
 	if (whiptail --title "Install a Desktop Environment" --yesno "You are about to install the GNOME 3 desktop. Are you sure?" 8 78) then {
-		'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
+		echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
 		
 		trap 'error "Install a Desktop Environment" "Installation has been aborted."; return 1' INT
 		
