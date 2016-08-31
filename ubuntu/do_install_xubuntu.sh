@@ -9,9 +9,9 @@ do_install_xubuntu() {
 		apt -y install \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
-			libvdpau-sunxi \
+			libvdpau-sunxi1 \
 			libump \
-			libcedrus \
+			libcedrus1 \
 			xubuntu-desktop \
 			xubuntu-docs
 		

@@ -9,9 +9,9 @@ do_install_ubuntu_gnome() {
 		apt -y install \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
-			libvdpau-sunxi \
+			libvdpau-sunxi1 \
 			libump \
-			libcedrus \
+			libcedrus1 \
 			ubuntu-gnome-desktop \
 			ubuntu-gnome-default-settings
 		

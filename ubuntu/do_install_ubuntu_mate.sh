@@ -9,9 +9,9 @@ do_install_ubuntu_mate() {
 		apt -y install \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
-			libvdpau-sunxi \
+			libvdpau-sunxi1 \
 			libump \
-			libcedrus \
+			libcedrus1 \
 			ubuntu-mate-core \
 			ubuntu-mate-desktop \
 			ubuntu-mate-lightdm-theme \

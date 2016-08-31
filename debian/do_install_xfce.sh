@@ -9,9 +9,9 @@ do_install_xfce() {
 		apt -y install \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
-			libvdpau-sunxi \
+			libvdpau-sunxi1 \
 			libump \
-			libcedrus \
+			libcedrus1 \
 			xfce4 \
 			xfce4-goodies
 		

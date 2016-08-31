@@ -9,9 +9,9 @@ do_install_lubuntu() {
 		apt -y install \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
-			libvdpau-sunxi \
+			libvdpau-sunxi1 \
 			libump \
-			libcedrus \
+			libcedrus1 \
 			# lubuntu-desktop package is not available for arm64
 			# so this is a (very long) workaround for it
 			abiword \
