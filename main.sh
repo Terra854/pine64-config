@@ -11,14 +11,14 @@ echo -n "Checking for whiptail..."
 if [ -x /bin/whiptail ]; then
 	echo -e "OK\n"
 else
-	echo -e "Not Installed\n" && DEPENDECIES="1"
+	echo -e "Not Installed" && DEPENDECIES="1"
 fi
 
 echo -n "Checking for xterm..."
 if [ -x /usr/bin/resize ]; then
 	echo -e "OK\n"
 else
-	echo -e "Not Installed\n" && DEPENDECIES="1"
+	echo -e "Not Installed" && DEPENDECIES="1"
 fi
 
 if [ $DEPENDECIES -eq 1 ]; then
