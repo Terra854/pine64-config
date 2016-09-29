@@ -5,7 +5,7 @@ do_select_desktop_environment() {
 	    "3 Xfce 4" "Installs the XFCE desktop environment" \
 	    "4 LxQt" "Installs the LxQt desktop environment" \
 	    "5 MATE" "Installs the MATE desktop environment" \
-		"6 Cinnamon" "Installs the Cinnamon desktop environment"
+		"6 Cinnamon" "Installs the Cinnamon desktop environment" \
 	    3>&1 1>&2 2>&3)
 	  RET=$?
 	if [ $RET -eq 1 ]; then
