@@ -23,7 +23,7 @@ else
 	echo -e "${RED}Not Installed\n" && DEPENDECIES="1"
 fi
 
-if [ DEPENDECIES == 1 ]; then
+if [ $DEPENDECIES -eq 1 ]; then
 	echo -e "\033[0;47m${RED}ERROR: One or more depedecies required for this script to run properly are not installed. Please install the missing dependecies and try again."
 	exit 1
 fi
