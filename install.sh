@@ -19,8 +19,7 @@ elif [ $1 = "debian" ]; then {
 }
 
 elif [ $1 = "opensuse" ]; then {
-	echo "ERROR: The tool is not compatible with openSUSE at this time."
-	exit 1
+	printf "" # Do nothing
 }
 
 else {
@@ -31,6 +30,7 @@ fi
 
 touch pine64-config.sh
 printf "#!/bin/bash\n \n" >> pine64-config.sh
+echo "DISTRO=$1" >> pine64-config.sh
 
 if [ $1 = "ubuntu" ]; then {
 	cat ubuntu/*.sh common/*.sh main.sh >> pine64-config.sh
@@ -38,6 +38,10 @@ if [ $1 = "ubuntu" ]; then {
 
 elif [ $1 = "debian" ]; then {
 	cat debian/*.sh common/*.sh main.sh >> pine64-config.sh
+}
+
+elif [ $1 = "opensuse" ]; then {
+	cat opensuse/*.sh common/*.sh main.sh >> pine64-config.sh
 }
 fi
 

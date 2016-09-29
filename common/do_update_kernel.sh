@@ -82,17 +82,15 @@ do_update_kernel() {
 		fi
 	fi
 
-	
-	
 	sync
-	if (whiptail --title "Update Linux Kernel" --yesno "The system will now need to reboot in order to finish the kernel upgrade. Reboot now?" 8 78)
-	then
-		cleanup
-		shutdown -r now
-	fi
-	
+
 	echo $ETAG > "$CURRENTFILE"
 	cleanup
 
+	if (whiptail --title "Update Linux Kernel" --yesno "The system will now need to reboot in order to finish the kernel upgrade. Reboot now?" 8 78)
+	then
+		shutdown -r now
+	fi
+	
 	return 0
 }
