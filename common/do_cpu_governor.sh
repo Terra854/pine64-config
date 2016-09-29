@@ -55,7 +55,7 @@ do_cpu_governor() {
 
 set_governor() {
 	cpufreq-set -g $1
-	if [ $? == 0 ]; then
+	if [ $? -eq 0 ]; then
 		whiptail --title "Set CPU Governor Mode" --msgbox "SUCCESS. The CPU governor is set to $1" 8 78
 		do_cpu_governor
 	else
