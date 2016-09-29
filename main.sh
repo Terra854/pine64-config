@@ -3,28 +3,26 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
-GREEN='\033[1;32m'
-RED='\033[1;31m'
 DEPENDECIES="0"
 
 echo "Checking for presence of required dependecies..."
 
 echo -n "Checking for whiptail..."
 if [ -x /bin/whiptail ]; then
-	echo -e "${GREEN}OK\n"
+	echo -e "OK\n"
 else
-	echo -e "${RED}Not Installed\n" && DEPENDECIES="1"
+	echo -e "Not Installed\n" && DEPENDECIES="1"
 fi
 
 echo -n "Checking for xterm..."
 if [ -x /usr/bin/resize ]; then
-	echo -e "${GREEN}OK\n"
+	echo -e "OK\n"
 else
-	echo -e "${RED}Not Installed\n" && DEPENDECIES="1"
+	echo -e "Not Installed\n" && DEPENDECIES="1"
 fi
 
 if [ $DEPENDECIES -eq 1 ]; then
-	echo -e "\033[0;47m${RED}ERROR: One or more depedecies required for this script to run properly are not installed. Please install the missing dependecies and try again."
+	echo "ERROR: One or more depedecies required for this script to run properly are not installed. Please install the missing dependecies and try again."
 	exit 1
 fi
 
