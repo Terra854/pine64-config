@@ -8,7 +8,7 @@ DEPENDECIES="0"
 echo "Checking for presence of required dependecies..."
 
 echo -n "Checking for whiptail..."
-if [ -x /bin/whiptail || -x /usr/bin/whiptail ]; then
+if [ -x /bin/whiptail ] || [ -x /usr/bin/whiptail ]; then
 	echo -e "OK\n"
 else
 	echo -e "Not Installed" && DEPENDECIES="1"
