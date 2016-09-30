@@ -4,7 +4,7 @@ do_install_xfce() {
 		
 		zypper refresh
 		
-		zypper -y install \
+		zypper install -y \
 			xserver-xorg-video-fbturbo \
 			sunxi-disp-tool \
 			libvdpau-sunxi \
