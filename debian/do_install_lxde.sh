@@ -19,7 +19,11 @@ do_install_lxde() {
 				shutdown -r now
 			fi
 		elif [ $? -eq 1 ]; then
-			error "Install a Desktop Environment" "ERROR: Looks like another process is using the package manager at the moment. Try again later. ($?)"
+			echo "##############################################################################"
+			echo "##      ERROR: The installation process failed. Please try again later      ##"
+			echo "##      Press ENTER to continue...                                          ##"
+			echo "##############################################################################"
+			read
 		else
 			error "Install a Desktop Environment" "ERROR: An unknown error has been detected. ($?)"
 		fi		

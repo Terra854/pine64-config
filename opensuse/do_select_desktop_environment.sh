@@ -5,7 +5,6 @@ do_select_desktop_environment() {
 	    "3 Xfce 4" "Installs the XFCE desktop environment" \
 	    "4 LxQt" "Installs the LxQt desktop environment" \
 	    "5 MATE" "Installs the MATE desktop environment" \
-	    "6 Cinnamon" "Installs the Cinnamon desktop environment" \
 	    3>&1 1>&2 2>&3)
 	  RET=$?
 	if [ $RET -eq 1 ]; then
@@ -17,7 +16,6 @@ do_select_desktop_environment() {
 			3\ *) do_install_xfce ;;
 			4\ *) do_install_lxqt ;;
 			5\ *) do_install_mate ;;
-			6\ *) do_install_cinnamon ;;
 			*) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
 		esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
 	fi
