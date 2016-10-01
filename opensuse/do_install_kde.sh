@@ -10,6 +10,7 @@ do_install_kde() {
 			libvdpau-sunxi \
 			libump \
 			libcedrus \
+			patterns-openSUSE-kde \
 			patterns-openSUSE-kde_plasma
 		
 		if [ $? -eq 0 ]; then
