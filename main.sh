@@ -34,9 +34,9 @@ while true; do
     "2 Fix All Problems" "This option will fix all kinds of problems that may occur on the Pine64" \
     "3 Install a Desktop Environment" "Set up a graphical environment on your Pine64" \
     "4 Update Linux Kernel" "Checks for a new version of the kernel and if there is, updates it." \
-	"5 Update Bootloader" "Checks for a new version of the bootloader and if there is, updates it." \
-	"6 Set CPU Govenor Mode" "Set the CPU Govenor mode for the Pine64" \
-	"7 Health Monitor" "Launches the health monitor for the Pine64" \
+    "5 Update Bootloader" "Checks for a new version of the bootloader and if there is, updates it." \
+    "6 Set CPU Govenor Mode" "Set the CPU Govenor mode for the Pine64" \
+    "7 Health Monitor" "Launches the health monitor for the Pine64" \
     "h About pine64-config" "Information about this configuration tool" \
     3>&1 1>&2 2>&3)
   RET=$?
@@ -48,9 +48,9 @@ while true; do
       2\ *) do_fix_whatever ;;
       3\ *) do_select_desktop_environment ;;
       4\ *) do_update_kernel ;;
-	  5\ *) do_update_uboot ;;
-	  6\ *) do_cpu_governor ;;
-	  7\ *) do_health ;;
+      5\ *) do_update_uboot ;;
+      6\ *) do_cpu_governor ;;
+      7\ *) do_health ;;
       h\ *) do_about ;;
       *) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
     esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
