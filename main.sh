@@ -7,7 +7,7 @@ DEPENDECIES="0"
 
 echo "Checking for presence of required dependecies..."
 
-echo -n "Checking for whiptail..."
+echo -n "Checking for whiptail (for debian/ubuntu) or newt (for opensuse)..."
 if [ -x /bin/whiptail ] || [ -x /usr/bin/whiptail ]; then
 	echo -e "OK\n"
 else
