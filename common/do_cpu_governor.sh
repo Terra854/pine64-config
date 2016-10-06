@@ -40,10 +40,10 @@ do_cpu_governor() {
 		fi
 	else
 		if (whiptail --title "Set CPU Governor Mode" --yesno "It seems that the tool required for this operation is not installed on your system. Do you want me to install it for you?" 8 78); then
-			if ( $DISTRO -eq "ubuntu" || $DISTRO -eq "debian" ); then
+			if ( $DISTRO == "ubuntu" || $DISTRO == "debian" ); then
 				apt -y install cpufrequtils
 				do_cpu_governor
-			elif ( $DISTRO -eq "opensuse" ); then
+			elif ( $DISTRO == "opensuse" ); then
 				zypper -y install cpufrequtils
 				do_cpu_governor
 			fi

@@ -30,7 +30,11 @@ do_update_uboot() {
 	fi
 
 	echo "Checking for update ..."
-	ETAG=$(curl -f -I -H "If-None-Match: \"${CURRENT}\"" -s "${URL}"|grep etag|awk -F'"' '{print $2}')
+	if [ $DISTRO == "ubuntu" ] || [ $DISTRO == "debian" ]; then
+		ETAG=$(curl -f -I -H "If-None-Match: \"${CURRENT}\"" -s "${URL}"|grep ETag|awk -F'"' '{print $2}')
+	elif [ $DISTRO == "opensuse" ]; then
+		ETAG=$(curl -f -I -H "If-None-Match: \"${CURRENT}\"" -s "${URL}"|grep etag|awk -F'"' '{print $2}')
+	fi
 
 	if [ -z "$ETAG" ]; then
 		error "Update Bootloader" "ERROR: Version $VERSION not found."
