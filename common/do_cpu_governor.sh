@@ -1,19 +1,7 @@
 do_cpu_governor() {
 	if [ -x /usr/bin/cpufreq-set ]; then
-		if [ -d /sys/devices/system/cpu/cpufreq/performance ]; then
-			GOVERNOR="performance"
-		elif [ -d /sys/devices/system/cpu/cpufreq/powersave ]; then
-			GOVERNOR="powersave"
-		elif [ -d /sys/devices/system/cpu/cpufreq/userspace ]; then
-			GOVERNOR="userspace"
-		elif [ -d /sys/devices/system/cpu/cpufreq/ondemand ]; then
-			GOVERNOR="ondemand"
-		elif [ -d /sys/devices/system/cpu/cpufreq/conserative ]; then
-			GOVERNOR="conserative"
-		elif [ -d /sys/devices/system/cpu/cpufreq/interactive ]; then
-			GOVERNOR="interactive"
-		fi
-
+		GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
+		
 		FUN=$(whiptail --title "Set CPU Governor Mode" --menu "The governor is currently set to $GOVERNOR\n \n What mode would you like to set it to?" $LINES $COLUMNS $(( $LINES - 8 )) --cancel-button Exit --ok-button Select \
 			"1 performance" "Always run your CPU at full speed. Not recommended if you are running on a battery." \
 			"2 powersave" "Always run your CPU at the lowest possible speed. Useful if you want to conserve battery, but may cause issues with Gigabit Ethernet" \
@@ -24,7 +12,7 @@ do_cpu_governor() {
 			3>&1 1>&2 2>&3)
 		RET=$?
 		if [ $RET -eq 1 ]; then
-			exit 0
+			return 0
 		elif [ $RET -eq 0 ]; then
 			case "$FUN" in
 				1\ *) set_governor performance ;;
@@ -36,7 +24,7 @@ do_cpu_governor() {
 				*) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
 			esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
 		else
-			exit 1
+			return 1
 		fi
 	else
 		if (whiptail --title "Set CPU Governor Mode" --yesno "It seems that the tool required for this operation is not installed on your system. Do you want me to install it for you?" 8 78); then
@@ -44,7 +32,7 @@ do_cpu_governor() {
 				apt -y install cpufrequtils
 				do_cpu_governor
 			elif ( $DISTRO == "opensuse" ); then
-				zypper -y install cpufrequtils
+				zypper install -y cpufrequtils
 				do_cpu_governor
 			fi
 		else
