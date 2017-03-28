@@ -17,6 +17,6 @@ do_select_desktop_environment() {
 			4\ *) do_install_lxde ;;
 			5\ *) do_install_mate ;;
 			*) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
-		esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
+		esac || echo -e -n
 	fi
 }

@@ -29,6 +29,9 @@ fi
 eval `resize`
 
 while true; do
+
+	trap "" INT
+
   FUN=$(whiptail --title "Pine64 Software Configuration Tool (pine64-config)" --menu "Hello there. What do you want to do today?" $LINES $COLUMNS $(( $LINES - 8 )) --cancel-button Exit --ok-button Select \
     "1 Expand Filesystem" "Ensures that all of the SD card storage is available to the OS" \
     "2 Fix All Problems" "This option will fix all kinds of problems that may occur on the Pine64" \
@@ -41,6 +44,7 @@ while true; do
     3>&1 1>&2 2>&3)
   RET=$?
   if [ $RET -eq 1 ]; then
+    clear
     exit 0
   elif [ $RET -eq 0 ]; then
     case "$FUN" in
@@ -53,8 +57,9 @@ while true; do
       7\ *) do_health ;;
       h\ *) do_about ;;
       *) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
-    esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
+    esac || echo -e -n
   else
+    clear
     exit 1
   fi
 done

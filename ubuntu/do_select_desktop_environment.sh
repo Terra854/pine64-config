@@ -21,6 +21,6 @@ do_select_desktop_environment() {
 			6\ *) do_install_ubuntu_mate ;;
 			7\ *) do_install_ubuntu_studio ;;
 			*) whiptail --msgbox "ERROR: The option is invalid" 20 60 1 ;;
-		esac || whiptail --msgbox "There was an error running option $FUN" 20 60 1
+		esac || echo -e -n
 	fi
 }

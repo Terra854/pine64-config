@@ -6,7 +6,6 @@ do_install_mate() {
 		
 		zypper install -y \
 			xserver-xorg-video-fbturbo \
-			sunxi-disp-tool \
 			libvdpau-sunxi \
 			libump \
 			libcedrus \

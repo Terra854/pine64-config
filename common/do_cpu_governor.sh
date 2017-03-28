@@ -2,7 +2,7 @@ do_cpu_governor() {
 	if [ -x /usr/bin/cpufreq-set ]; then
 		GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
 		
-		FUN=$(whiptail --title "Set CPU Governor Mode" --menu "The governor is currently set to $GOVERNOR\n \n What mode would you like to set it to?" $LINES $COLUMNS $(( $LINES - 8 )) --cancel-button Exit --ok-button Select \
+		FUN=$(whiptail --title "Set CPU Governor Mode" --menu "The governor is currently set to $GOVERNOR. What mode would you like to set it to?" $LINES $COLUMNS $(( $LINES - 8 )) --cancel-button Exit --ok-button Select \
 			"1 performance" "Always run your CPU at full speed. Not recommended if you are running on a battery." \
 			"2 powersave" "Always run your CPU at the lowest possible speed. Useful if you want to conserve battery, but may cause issues with Gigabit Ethernet" \
 			"3 userspace" "Let userspace utilities set the speed of your CPU (Not for the faint hearted)" \
@@ -28,10 +28,10 @@ do_cpu_governor() {
 		fi
 	else
 		if (whiptail --title "Set CPU Governor Mode" --yesno "It seems that the tool required for this operation is not installed on your system. Do you want me to install it for you?" 8 78); then
-			if ( $DISTRO == "ubuntu" || $DISTRO == "debian" ); then
+			if [ $DISTRO = "ubuntu" -o $DISTRO = "debian" ]; then
 				apt -y install cpufrequtils
 				do_cpu_governor
-			elif ( $DISTRO == "opensuse" ); then
+			elif [ $DISTRO = "opensuse" ]; then
 				zypper install -y cpufrequtils
 				do_cpu_governor
 			fi

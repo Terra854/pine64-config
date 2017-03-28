@@ -6,7 +6,6 @@ do_install_kde() {
 		
 		zypper install -y \
 			xserver-xorg-video-fbturbo \
-			sunxi-disp-tool \
 			libvdpau-sunxi \
 			libump \
 			libcedrus \
